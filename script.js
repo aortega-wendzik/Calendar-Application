@@ -13,13 +13,21 @@ timeBlocks.forEach(function (timeBlock) {
   var hour = timeBlock.id.split("-")[1];
   var currentHour = moment().hour();
 
+  console.log("Hour:", hour, typeof hour);
+  console.log("Current Hour:", currentHour, typeof currentHour);
+
+
   // Color code each time block to indicate past, present, or future
-  if (hour < currentHour) {
+  if (parseInt(hour) < parseInt(currentHour)) {
+    console.log("Hour is less than currentHour");
     timeBlock.classList.add("past");
   } else if (hour === currentHour) {
+    console.log("Hour is equal to currentHour");
     timeBlock.classList.add("present");
   } else {
+    console.log("Hour is greater than currentHour");
     timeBlock.classList.add("future");
+    
   }
 
   // Retrieve the saved event from local storage and display it in the textarea
